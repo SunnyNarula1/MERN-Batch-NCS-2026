@@ -1,0 +1,21 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    /* transition-property: background-color width height color font-size border-radius display justify-content align-items;
+    transition-duration: 500ms;
+    transition-delay: 1s; */
+    transition: all 1s;
+}
+
+div:hover{
+    background-color: green;
+    width: 300px;
+    height: 300px;
+    color: white;
+    font-size: 40pt;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

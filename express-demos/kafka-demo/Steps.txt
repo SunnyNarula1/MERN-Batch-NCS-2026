@@ -1,0 +1,8 @@
+Step 1. - Run Kafka Server using docker-compose file
+    command - docker-compose up -d
+
+Step 2. - Create the topic
+    command - docker exec -it kafka /opt/kafka/bin/kafka-topics.sh --create --topic order-events --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+Step 3. (optional) - Verify the topic
+    command - docker exec -it kafka /opt/kafka/bin/kafka-topics.sh --list --bootstrap-server localhost:9092

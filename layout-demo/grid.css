@@ -1,0 +1,16 @@
+.container {
+    background-color: rgb(145, 184, 218);
+    padding: 20px;
+    display: grid;
+    /* grid-template-columns: 100px 200px 100px; */
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    grid-template-columns: 1fr repeat(3, 2fr) 1fr;
+    column-gap: 5px;
+    row-gap: 10px;
+}
+
+.container div{
+    background-color: beige;
+    border: 1px solid black;
+    padding: 10px;
+}

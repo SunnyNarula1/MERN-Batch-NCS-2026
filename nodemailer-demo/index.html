@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1>Email Sending Demo in NodeJS</h1>
+                <form action="/api/sendemail" method="post" , enctype="multipart/form-data">
+                    <div class="mt-2">
+                        <input type="text" name="to" class="form-control form-control-sm" placeholder="To">
+                    </div>
+                    <div class="mt-2">
+                        <input type="text" name="subject" class="form-control form-control-sm" placeholder="Subject">
+                    </div>
+                    <div class="mt-2">
+                        <input type="file" name="fileInput" class="form-control form-control-sm" multiple>
+                    </div>
+                    <div class="mt-2">
+                        <textarea name="messageBody" class="form-control" cols="30" rows="10" placeholder="Your Message"></textarea>
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-success">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

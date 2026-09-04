@@ -1,0 +1,10 @@
+{
+  "todos": [
+    {
+      "text": "Meeting at 9 AM",
+      "iscompleted": false,
+      "id": "71qpJf5gNrg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
