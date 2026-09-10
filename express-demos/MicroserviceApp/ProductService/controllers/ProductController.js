@@ -12,33 +12,18 @@ async function GetProductById(req, res) {
     res.send(product)
 }
 
-// async function AddProduct(req, res) {
-//     try {
-//         let prd = new Product({
-//             productId: uuidv4(),
-//             name: req.body.name,
-//             brand: req.body.brand,
-//             quantity: req.body.quantity,
-//             price: req.body.price,
-//         })
-//         await prd.save()
-//     } catch (e) {
-//         res.status(500).send({error: e.message})
-//         return
-//     }
-
-//     res.status(201).send({ status: 201, message: 'Product saved successfully' })
-// }
 async function AddProduct(req, res) {
     const result = validationResult(req);
     if (result.isEmpty()) {
         let prd = new Product({
             productId: uuidv4(),
             name: req.body.name,
+            thumbnail: req.body.thumbnail,
             brand: req.body.brand,
             quantity: req.body.quantity,
             price: req.body.price,
         })
+        console.log(req.body)
         await prd.save()
         res.status(201).send({ status: 201, message: 'Product saved successfully' })
     } else {
@@ -58,6 +43,7 @@ async function UpdateProduct(req, res) {
             name: req.body.name,
             brand: req.body.brand,
             quantity: req.body.quantity,
+            thumbnail: req.body.thumbnail,
             price: req.body.price
         }
     )

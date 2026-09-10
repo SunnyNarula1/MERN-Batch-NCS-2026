@@ -1,6 +1,18 @@
 import React from 'react'
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router";
-export default function Header() {
+import { appActions } from './redux/appSlice';
+import { useNavigate } from "react-router";
+export default function Header({ status }) {
+    const username = useSelector((state) => state.app.username)
+    const isLoggedIn = useSelector((state) => state.app.isLoggedIn)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    function logout() {
+        dispatch(appActions.logout())
+        localStorage.clear()
+        navigate('/')
+    }
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -24,12 +36,26 @@ export default function Header() {
                         </li>
                     </ul>
                     <ul className="navbar-nav me-end mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
-                        </li>
+                        {
+                            isLoggedIn ? <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/">Welcome {username}</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <button className="nav-link" onClick={logout}>Logout</button>
+                                </li>
+                            </> : <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/">Welcome {username}</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/login">Login</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/register">Register</Link>
+                                </li>
+                            </>
+                        }
                     </ul>
                 </div>
             </div>

@@ -1,30 +1,12 @@
 import mongoose, { Types } from "mongoose";
 
-// const reviewSchema = new mongoose.Schema({
-//     user: {
-//         type: String,
-//         required: true,
-
-//     },
-//     rating: {
-//         type: Number,
-//         required: true
-//     },
-//     comment: {
-//         type: String,
-//         required: true
-//     },
-//     createdAt: {
-//         type: String,
-//         default: Date.now
-//     },
-
-// })
-
 const productSchema = new mongoose.Schema({
     productId: {
         type: String,
         required: true
+    },
+    thumbnail: {
+        type: String
     },
     name: {
         type: String,
@@ -43,10 +25,6 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    // reviews: [reviewSchema]
-    // reviews : {
-    //     type: mongoose.Schema.Types.Mixed // anything can go in this field
-    // }
 })
 
 

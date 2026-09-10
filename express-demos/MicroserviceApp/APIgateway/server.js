@@ -2,17 +2,19 @@ import express from "express"
 import { createProxyMiddleware } from "http-proxy-middleware"
 import rateLimit from "express-rate-limit"
 import Consul from "consul"
+import cors from "cors"
 
 const app = express()
+app.use(cors())
 
 const productlimiter = rateLimit({
-    windowMs: 60000,
-    max: 10
+    windowMs: 6000,
+    max: 100
 })
 
 const userlimiter = rateLimit({
-    windowMs: 60000,
-    max: 50
+    windowMs: 6000,
+    max: 100
 })
 
 // app.use(limiter)

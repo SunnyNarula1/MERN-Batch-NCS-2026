@@ -28,7 +28,7 @@ async function login(req, res) {
     if (!bcrypt.compareSync(req.body.password, user.password)) {
         res.status(401).send({ status: 401, message: 'Incorrect Password' })
     }
-    res.status(200).send({ token: GenerateToken(user.toJSON()) })
+    res.status(200).send({username: user.firstname, token: GenerateToken(user.toJSON()) })
 }
 
 async function register(req, res) {
